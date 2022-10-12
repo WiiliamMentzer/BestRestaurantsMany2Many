@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Type;
+
+<h2>Removing a Restaurant type:</h2>
+
+@using (Html.BeginForm())
+{
+  <p>Delete the Restaurant type @Model.TypeName</p>
+  <input type="submit" label="Confirm">
+}
+
+<p>@Html.ActionLink("See all food types", "Index", "Types")</p>
+<p>@Html.ActionLink("See All Restaurants", "Index", "Restaurants")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>

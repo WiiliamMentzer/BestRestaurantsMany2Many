@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Type
+
+<h1>EDIT</h1>
+
+<h3>You are editing the information for the Type: @Html.DisplayFor(model => model.TypeName)</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TypeId)
+
+  @Html.LabelFor(model => model.TypeName)
+  @Html.EditorFor(model => model.TypeName)
+
+  <input type="submit" value="Save"/>
+}
+
+<p>@Html.ActionLink("See all food types", "Index", "Types")</p>
+<p>@Html.ActionLink("See All Restaurants", "Index", "Restaurants")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>

@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using BestRestaurants.Models;
+
+<h1>All Restaurant Types:</h1>
+
+@if (Model.Count == 0)
+{
+  <p>There are no restaurant types?</p>
+}
+
+<ul>
+  @foreach (BestRestaurants.Models.Type type in Model)
+  {
+    <li>@Html.ActionLink($"{type.TypeName}", "Details", new {id = type.TypeId})</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Create a restaurant type", "Create")</p>
+<p>@Html.ActionLink("See All Restaurants", "Index", "Restaurants")</p>
+<p>@Html.ActionLink("Return Home", "Index", "Home")</p>

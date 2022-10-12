@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Restaurant;
+
+<h2>Restaurant Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This restaurant does not contain any types of food</p>
+}
+else
+{
+  <h4>Types of food served at the restaurant:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Type.TypeName</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add a Type to this Restaurant", "AddType", new {id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Back", "Index")</p>
+<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
